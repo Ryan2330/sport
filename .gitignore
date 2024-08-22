@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人網站 - 問答平台</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .question {
+            margin-bottom: 1.5rem;
+        }
+        .question h2 {
+            font-size: 1.5rem;
+        }
+        .answer {
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            border-left: 4px solid #007BFF;
+        }
+        .select-category {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+    <script>
+        function showAnswer() {
+            var category = document.getElementById("category").value;
+            var basketballQuestion = document.getElementById("basketball-question");
+            var footballQuestion = document.getElementById("football-question");
+            var playerQuestion = document.getElementById("player-question");
+
+            basketballQuestion.style.display = "none";
+            footballQuestion.style.display = "none";
+            playerQuestion.style.display = "none";
+
+            if (category === "basketball") {
+                basketballQuestion.style.display = "block";
+            } else if (category === "football") {
+                footballQuestion.style.display = "block";
+            } else if (category === "player") {
+                playerQuestion.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>我的個人問答平台</h1>
+    </header>
+    <main>
+        <div class="select-category">
+            <label for="category">選擇一個問題類別:</label>
+            <select id="category" onchange="showAnswer()">
+                <option value="basketball">籃球相關問題</option>
+                <option value="football">足球相關問題</option>
+                <option value="player">最喜歡的NBA球員</option>
+            </select>
+        </div>
+
+        <section id="basketball-question" class="question">
+            <h2>籃球相關問題</h2>
+            <div class="answer">
+                <p><strong>問:</strong> 你喜歡打籃球嗎？</p>
+                <p><strong>答:</strong> 是的，籃球是一項充滿挑戰和樂趣的運動。</p>
+            </div>
+        </section>
+
+        <section id="football-question" class="question" style="display: none;">
+            <h2>足球相關問題</h2>
+            <div class="answer">
+                <p><strong>問:</strong> 你喜歡看足球比賽嗎？</p>
+                <p><strong>答:</strong> 我非常喜歡看足球比賽，特別是世界盃的比賽。</p>
+            </div>
+        </section>
+
+        <section id="player-question" class="question" style="display: none;">
+            <h2>最喜歡的NBA球員</h2>
+            <div class="answer">
+                <p><strong>問:</strong> 誰是你最喜歡的NBA球員？</p>
+                <p><strong>答:</strong> 我最喜歡的NBA球員是安東尼·愛德華茲 (Anthony Edwards)，他是明尼蘇達木狼隊的明星球員，擁有驚人的爆發力和得分能力。</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
